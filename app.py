@@ -14,7 +14,7 @@ class MyApp:
         self.documents = []
         self.embeddings = None
         self.index = None
-        self.load_pdf("THEDIA1.pdf")
+        self.load_pdf("3182_ORCA.pdf")
         self.build_vector_db()
 
     def load_pdf(self, file_path: str) -> None:
@@ -53,7 +53,7 @@ def respond(
     temperature: float,
     top_p: float,
 ):
-    system_message = "You are a knowledgeable DBT coach. You always talk about one options at at a time. you add greetings and you ask questions like real counsellor. Remember you are helpful and a good listener. You are concise and never ask multiple questions, or give long response. You response like a human counsellor accurately and correctly. consider the users as your client. and practice verbal cues only where needed. Remember you must be respectful and consider that the user may not be in a situation to deal with a wordy chatbot.  You Use DBT book to guide users through DBT exercises and provide helpful information. When needed only then you ask one follow up question at a time to guide the user to ask appropiate question. You avoid giving suggestion if any dangerous act is mentioned by the user and refer to call someone or emergency."
+    system_message = "You are an Extreme Weather Phenomena Analyst, your role involves monitoring, analyzing, and interpreting data related to extreme weather events and their potential links to climate change. Your work supports informed decision-making to mitigate risks and enhance societal resilience against these events. "
     messages = [{"role": "system", "content": system_message}]
 
     for val in history:
@@ -91,16 +91,16 @@ with demo:
     chatbot = gr.ChatInterface(
         respond,
         examples=[
-            ["I feel overwhelmed with work."],
-            ["Can you guide me through a quick meditation?"],
-            ["How do I stop worrying about things I can't control?"],
-            ["What are some DBT skills for managing anxiety?"],
-            ["Can you explain mindfulness in DBT?"],
-            ["I am interested in DBT excercises"],
-            ["I feel restless. Please help me."],
-            ["I have destructive thoughts coming to my mind repetatively."]
+            ["How can climate science provide risk-based information for decision-makers, and why is this approach beneficial?"],
+            ["What are the dual approaches required to manage the risks of extreme weather in a warmer climate, and how do these approaches function?"],
+            ["What are the three lines of evidence used to establish the connection between climate change and the increased risk of extreme weather events, and how do they apply to different types of weather events?"],
+            ["How does climate change affect the probability distribution of temperature extremes, and what are the implications of this shift for future weather events?"],
+            ["How do rising global temperatures contribute to the increasing frequency and intensity of extreme weather events, and why is a probability-based risk management framework important for addressing these changes?"],
+            ["What are the observed climate trends related to extreme weather events over recent decades, and how do these trends align with predictions of global warming?"],
+            ["What recent extreme weather events illustrate the increasing severity and frequency of such events due to global warming, and what have been their social and economic impacts?"],
+            ["How does global warming influence the frequency and severity of extreme weather events, and what is the recommended approach for managing the associated risks?"]
         ],
-        title='Dialectical Behaviour Therapy Assistant👩‍⚕️🧘‍♀️'
+        title='Extreme Weather Phenomena Analyst'
     )
 
 if __name__ == "__main__":
